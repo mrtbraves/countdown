@@ -8,7 +8,15 @@ function CountDownTimer(dateTime, divId) {
     var timer;
 
     function showRemaining() {
-       // ... 
+        var rightNow = new Date();
+        // milliseconds difference between dates
+        var difference = end - rightNow;
+        // round down all division for whole ints
+        var days = Math.floor(difference/_day);
+        var hours = Math.floor((difference%_day)/_hour);
+        var minutes = Math.floor((difference%_hour)/_minute);
+        var seconds = Math.floor((difference%_minute)/_second);
+       document.getElementById(divId).innerHTML = days + ' days ' + hours + ' hrs ' + minutes + ' mins ' + seconds + ' secs'; 
     }
 
     timer = setInterval(showRemaining(), 1000);
